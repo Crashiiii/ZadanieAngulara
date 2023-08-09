@@ -4,6 +4,7 @@
   <input class="app-contact__input" placeholder="Podaj Imię" type="text" [(ngModel)]="name" />
   <input class="app-contact__input" placeholder="Podaj Nazwisko" type="text" [(ngModel)]="surname" />
   <input class="app-contact__input" placeholder="Podaj Wiek" type="number" [(ngModel)]="age" />
+  <input class="app-contact__input" placeholder="Podaj E-mail" type="text" [(ngModel)]="mail" />
   <button (click)="print()" [disabled]="isDisabled()">Wyślij Dane</button>
   <p>{{summary}}</p>
 </div>
