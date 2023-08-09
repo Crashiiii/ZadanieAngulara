@@ -1,0 +1,12 @@
+:host {
+  display: flex;
+  flex-direction: column;
+}
+
+  .app-comp {
+    &__list {
+			display: flex;
+      margin-left: 10px;
+      font-size: 14px;
+    }
+  }

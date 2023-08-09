@@ -1,0 +1,9 @@
+<h1 class="app-contact__title"> Formularz Kontaktowy</h1>
+<!-- <form [formGroup]="formGroup"></form> -->
+<div class="app-contact__form-container">
+  <input class="app-contact__input" placeholder="Podaj Imię" type="text" [(ngModel)]="name" />
+  <input class="app-contact__input" placeholder="Podaj Nazwisko" type="text" [(ngModel)]="surname" />
+  <input class="app-contact__input" placeholder="Podaj Wiek" type="number" [(ngModel)]="age" />
+  <button (click)="print()" [disabled]="isDisabled()">Wyślij Dane</button>
+  <p>{{summary}}</p>
+</div>
