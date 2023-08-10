@@ -1,8 +1,15 @@
 <title>Formularz kontaktowy</title>
-<li class="app-comp__list">
-  <a routerLink="/contact" routerLinkActive="active">Formularz Kontaktowy</a>
-</li>
-<li class="app-comp__list">
-  <a routerLink="" routerLinkActive="active">Strona Główna</a>
-</li>
-<router-outlet></router-outlet>
+<div class="container">
+  <ul class="app-comp__list">
+    <li class="app-comp__li">
+      <a routerLink="/homepage" routerLinkActive="active">Strona Główna</a>
+    </li>
+    <li class="app-comp__li">
+      <a routerLink="/contact" routerLinkActive="active">Formularz Kontaktowy</a>
+    </li>
+  </ul>
+  <router-outlet></router-outlet>
+  <footer class="app-comp__footer">
+    Wykonał:Rafał Wiliński
+  </footer>
+</div>

@@ -1,10 +1,18 @@
 <h1 class="app-contact__title"> Formularz Kontaktowy</h1>
-<!-- <form [formGroup]="formGroup"></form> -->
 <div class="app-contact__form-container">
-  <input class="app-contact__input" placeholder="Podaj Imię" type="text" [(ngModel)]="name" />
-  <input class="app-contact__input" placeholder="Podaj Nazwisko" type="text" [(ngModel)]="surname" />
-  <input class="app-contact__input" placeholder="Podaj Wiek" type="number" [(ngModel)]="age" />
-  <input class="app-contact__input" placeholder="Podaj E-mail" type="text" [(ngModel)]="mail" />
-  <button (click)="print()" [disabled]="isDisabled()">Wyślij Dane</button>
+  <input class="app-contact__input" placeholder="Podaj imię" type="text" [(ngModel)]="name" />
+  <input class="app-contact__input" placeholder="Podaj nazwisko" type="text" [(ngModel)]="surname" />
+  <input class="app-contact__input" placeholder="Podaj wiek" type="number" [(ngModel)]="age" />
+  <input class="app-contact__input" placeholder="Podaj e-mail" type="text" [(ngModel)]="mail" />
+  <button mat-raised-button color="primary" (click)="print()" [disabled]="isDisabled()">Wyślij</button>
   <p>{{summary}}</p>
 </div>
+
+<h2 class="app-contact__title"> Formularz Kontaktowy</h2>
+<form class="app-contact__form-container" [formGroup]="formGroup" (ngSubmit)="submitForm()">
+  <input class="app-contact__input" placeholder="Podaj imię" type="text" formControlName="firstname" />
+  <input class="app-contact__input" placeholder="Podaj nazwisko" type="text" formControlName="lastname" />
+  <input class="app-contact__input" placeholder="Podaj wiek " type="number" formControlName="agee" />
+  <input class="app-contact__input" placeholder="Podaj e-mail" type="email" formControlName="email" />
+  <button mat-raised-button color="primary" type="submit" [disabled]="!formGroup.valid">Wyślij</button>
+</form>

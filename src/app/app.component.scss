@@ -1,12 +1,32 @@
-:host {
-  display: flex;
-  flex-direction: column;
-}
+  .container {
+    display: flex;
+    flex-direction: column;
+  }
 
   .app-comp {
     &__list {
-			display: flex;
-      margin-left: 10px;
+      display: flex;
+      margin-bottom: 5px;
       font-size: 14px;
+      background-color: rgb(0, 238, 255);
+      margin-top: 0;
+      padding-inline-start: 3px;
+    }
+
+    &__li {
+      list-style: none;
+      margin-right: 10px;
+    }
+
+    &__footer {
+      padding-top: 5px;
+      padding-bottom: 5px;
+      text-align: center;
+      color: white;
+      background-color:black;
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+
     }
   }
