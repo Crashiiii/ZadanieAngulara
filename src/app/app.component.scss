@@ -1,21 +1,31 @@
+  :host {
+    background-color: red;
+  }
+
   .container {
     display: flex;
     flex-direction: column;
+
   }
 
   .app-comp {
     &__list {
       display: flex;
-      margin-bottom: 5px;
+      margin-bottom: 0px;
       font-size: 14px;
-      background-color: rgb(0, 238, 255);
+      background-color: rgb(0, 0, 0);
       margin-top: 0;
       padding-inline-start: 3px;
     }
 
-    &__li {
+    &__list-item {
       list-style: none;
       margin-right: 10px;
+    }
+
+    &__link {
+      text-decoration: none;
+      color: white;
     }
 
     &__footer {
@@ -23,10 +33,9 @@
       padding-bottom: 5px;
       text-align: center;
       color: white;
-      background-color:black;
+      background-color: black;
       position: absolute;
       bottom: 0;
       width: 100%;
-
     }
   }
