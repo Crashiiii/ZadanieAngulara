@@ -1,0 +1,17 @@
+<div>
+  <h1 class="app-samples__title">Lista Linków w fazie tworzenia.</h1>
+
+  <div *ngFor="let link of links; let i = index">
+    <input [(ngModel)]="link.name" placeholder="Nazwa linku" />
+    <input [(ngModel)]="link.url" placeholder="URL linku" />
+    <button (click)="removeLink(i)">Usuń</button>
+  </div>
+  <button
+    class="app-samples__button"
+    mat-raised-button
+    color="primary"
+    (click)="addLink()"
+  >
+    Dodaj orzeczenie
+  </button>
+</div>

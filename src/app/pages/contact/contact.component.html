@@ -1,27 +1,80 @@
-<h1 class="app-contact__title"> Formularze Kontaktowe</h1>
+<h1 class="app-contact__title">
+  Formularz Kontaktowy(Po Wysłaniu zgłoszenia każdy widzi)
+</h1>
 
-<mat-grid-list cols="2" rowHeight="2:1">
-  <mat-grid-tile>
-    <div class="app-contact__form-container">
-      <input class="app-contact__input" placeholder="Podaj imię*" type="text" [(ngModel)]="name" />
-      <input class="app-contact__input" placeholder="Podaj nazwisko*" type="text" [(ngModel)]="surname" />
-      <input class="app-contact__input" placeholder="Podaj wiek*" type="number" [(ngModel)]="age" />
-      <input class="app-contact__input" placeholder="Podaj e-mail*" type="text" [(ngModel)]="mail" />
-      <input class="app-contact__input" placeholder="Powód kontaktu*" type="text" [(ngModel)]="description" />
-      <button mat-raised-button color="primary" (click)="onPrintClick()" [disabled]="isDisabled()">Wyślij</button>
-      <p>{{summary}}</p>
-    </div>
-  </mat-grid-tile>
-
-  <mat-grid-tile>
-    <form class="app-contact__form-container" [formGroup]="formGroup" (ngSubmit)="onSubmit()">
-      <input class="app-contact__input" placeholder="Podaj imię*" type="text" formControlName="firstname" />
-      <input class="app-contact__input" placeholder="Podaj nazwisko*" type="text" formControlName="lastname" />
-      <input class="app-contact__input" placeholder="Podaj wiek*" type="number" formControlName="agee" />
-      <input class="app-contact__input" placeholder="Podaj e-mail*" type="email" formControlName="email" />
-      <input class="app-contact__input" placeholder="Powód kontaktu*" type="email" formControlName="descriptionn" />
-      <button mat-raised-button color="primary" type="submit" [disabled]="!formGroup.valid">Wyślij</button>
-    </form>
-  </mat-grid-tile>
-</mat-grid-list>
+<form
+  class="app-contact__form-container"
+  [formGroup]="formGroup"
+  (ngSubmit)="onSubmit()"
+>
+  <input
+    class="app-contact__input"
+    placeholder="Podaj imię*"
+    type="text"
+    formControlName="firstname"
+  />
+  <input
+    class="app-contact__input"
+    placeholder="Podaj nazwisko*"
+    type="text"
+    formControlName="lastname"
+  />
+  <input
+    class="app-contact__input"
+    placeholder="Podaj wiek*"
+    type="number"
+    formControlName="age"
+  />
+  <input
+    class="app-contact__input"
+    placeholder="Podaj e-mail*"
+    type="email"
+    formControlName="email"
+  />
+  <input
+    class="app-contact__input"
+    placeholder="Powód kontaktu*"
+    type="email"
+    formControlName="description"
+  />
+  <button
+    mat-raised-button
+    color="primary"
+    type="submit"
+    [disabled]="!formGroup.valid"
+  >
+    Wyślij
+  </button>
+</form>
 <p class="app-contact__Obligation">*-Pola Obowiązkowe</p>
+
+<table class="app-contact__table">
+  <thead>
+    <tr>
+      <th class="app-contact__table-th">Imię</th>
+      <th class="app-contact__table-th">Nazwisko</th>
+      <th class="app-contact__table-th">Wiek</th>
+      <th class="app-contact__table-th">Email</th>
+      <th class="app-contact__table-th">Opis</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let d of details | async">
+      <td class="app-contact__table-separation">{{ d.firstname }}</td>
+      <td class="app-contact__table-separation">{{ d.lastname }}</td>
+      <td class="app-contact__table-separation">{{ d.age }}</td>
+      <td class="app-contact__table-separation">{{ d.email }}</td>
+      <td class="app-contact__table-separation">{{ d.description }}</td>
+      <td>
+        <!-- Przyciski dla każdego wiersza, np. edycja, usuwanie itp. -->
+      </td>
+    </tr>
+  </tbody>
+</table>
+<mat-paginator
+  [length]="paginatorLength"
+  [pageSize]="pageSize"
+  [pageSizeOptions]="[5, 10, 25, 100]"
+  (page)="onPageChange($event)"
+>
+</mat-paginator>

@@ -1,4 +1,4 @@
-.app-homepage {
+.app-samples {
   &__title {
     display: flex;
     align-items: center;
@@ -13,5 +13,10 @@
     margin-inline-start: 10px;
     margin-inline-end: 10px;
     margin-bottom: 15px;
+  }
+  &__button {
+    margin-top: 15px;
+    margin-bottom: 15px;
+    font-size: 12px;
   }
 }
